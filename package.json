@@ -1,0 +1,35 @@
+{
+  "name": "kharcha-khata",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Offline Daily, Home and Trip expense manager (Android APK via Capacitor)",
+  "scripts": {
+    "copy-libs": "node scripts/copy-libs.js",
+    "sync": "npm run copy-libs && npx cap sync android && npm run patch-android",
+    "android:add": "npx cap add android",
+    "apk:debug": "npm run sync && node scripts/gradle.js assembleDebug",
+    "open": "npx cap open android",
+    "patch-android": "node scripts/patch-android.js",
+    "icons": "capacitor-assets generate --android --iconBackgroundColor '#ffffff' --splashBackgroundColor '#1d1745' --splashBackgroundColorDark '#110e28'",
+    "aab:release": "npm run sync && node scripts/gradle.js bundleRelease",
+    "apk:release": "npm run sync && node scripts/gradle.js assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor-community/contacts": "^8.0.0",
+    "@capacitor-community/speech-recognition": "^7.0.1",
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.6.0",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/local-notifications": "^8.3.1",
+    "@capacitor/share": "^8.0.3",
+    "@capgo/capacitor-native-biometric": "^8.9.1",
+    "jspdf": "^3.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.6.0",
+    "@fontsource/space-grotesk": "^5.3.0"
+  },
+  "versionCode": 1
+}
